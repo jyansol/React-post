@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 'post-list',
+      page: 'register',
       // page === 'post-list' -> 게시글 목록
       // page === 'login -> 로그인 폼
       // page === 'register' -> 횐가입
