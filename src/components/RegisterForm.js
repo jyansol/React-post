@@ -46,6 +46,7 @@ export default class RegisterForm extends Component {
 
   handleFieldChange(e, name) {
     // name변수에 저장되어 있는 문자열을 그대로 속성이름으로 사용
+    // const res의 username 변수?
     this.setState({
       [name]: e.target.value,
     });
