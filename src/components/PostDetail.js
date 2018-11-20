@@ -27,7 +27,6 @@ export default class PostDetail extends Component {
     return (
       <div>
         <button>BACK</button>
-        <button>NEW</button>
         <h1>post detail</h1>
         <h2>{title}</h2>
         <p>{body}</p>
