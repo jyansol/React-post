@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api';
+import Layout from './Layout';
 
 export default class PostList extends Component {
   constructor(props) {
@@ -25,8 +26,8 @@ export default class PostList extends Component {
     const { posts } = this.state;
     const { onDetail, onNewPostFormPage } = this.props;
     return (
-      <div>
-        <h1>POST LIST</h1>
+      <Layout title="POST LIST">
+        {/* <h1>POST LIST</h1> */}
         <button onClick={() => onNewPostFormPage()}>NEW POST</button>
         <ul>
           {posts.map((post) => (
@@ -35,7 +36,7 @@ export default class PostList extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </Layout>
     );
   }
 }

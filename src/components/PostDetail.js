@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api';
+import Layout from './Layout';
 
 export default class PostDetail extends Component {
   constructor(props) {
@@ -26,13 +27,13 @@ export default class PostDetail extends Component {
     const { title, body } = this.state;
     const { postId, onEditPostFormPage, onPostListPage } = this.props;
     return (
-      <div>
+      <Layout title="타-란!">
         <button onClick={() => onPostListPage()}>BACK</button>
         <h1>post detail</h1>
         <button onClick={() => onEditPostFormPage(postId)}>EDIT</button>
         <h2>{title}</h2>
         <p>{body}</p>
-      </div>
+      </Layout>
     );
   }
 }
