@@ -50,6 +50,8 @@ class LoginForm extends React.Component {
 //함수형 컴포넌트 위에 class 앞에 export default지워줬음
 // render() 안에서 범위가 좁게 사용하던걸 export해줌으로써 props로 여러군데에서 사용
 // 받은 props를 loginForm에 내려주는 코드 => 사용법이 <loginForm/> 과 같다
+// LoginForm 부분을 Component라는 매개변수로 받아서
+// export default withUser('component이름')으로 짧게 쓸 수 있음
 export default (props) => {
   return <UserConsumer>{({ login }) => <LoginForm {...props} login={login} />}</UserConsumer>;
 };
