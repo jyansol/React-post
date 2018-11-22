@@ -30,6 +30,7 @@ export default class UserProvider extends Component {
     });
     localStorage.setItem('token', res.data.token);
     await this.refreshUser();
+    this.props.onPostListPage();
   }
 
   logout() {

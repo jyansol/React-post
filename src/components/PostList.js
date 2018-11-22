@@ -25,9 +25,9 @@ export default class PostList extends Component {
   render() {
     // const {} 로 App에서 내려쥼
     const { posts } = this.state;
-    const { onDetail, onNewPostFormPage } = this.props;
+    const { onDetail, onNewPostFormPage, onLoginFormPage } = this.props;
     return (
-      <Layout title="POST LIST">
+      <Layout title="POST LIST" onLoginFormPage={onLoginFormPage}>
         {/* <h1>POST LIST</h1> */}
 
         <button onClick={() => onNewPostFormPage()}>NEW POST</button>
