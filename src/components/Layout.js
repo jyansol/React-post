@@ -7,7 +7,14 @@ export default class Layout extends Component {
       <div>
         <div className="header">
           header
-          <UserConsumer>{({ username }) => <div>{username}</div>}</UserConsumer>
+          <UserConsumer>
+            {({ username, logout }) => (
+              <React.Fragment>
+                <div>{username}</div>
+                <button onClick={logout}>LOGOUT</button>
+              </React.Fragment>
+            )}
+          </UserConsumer>
         </div>
         <h1 className="title">{this.props.title}</h1>
         {this.props.children}
