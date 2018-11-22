@@ -28,8 +28,8 @@ export default class PostDetail extends Component {
     const { postId, onEditPostFormPage, onPostListPage } = this.props;
     return (
       <Layout title="타-란!">
-        <button onClick={() => onPostListPage()}>BACK</button>
         <h1>post detail</h1>
+        <button onClick={() => onPostListPage()}>BACK</button>
         <button onClick={() => onEditPostFormPage(postId)}>EDIT</button>
         <h2>{title}</h2>
         <p>{body}</p>
