@@ -7,6 +7,7 @@ import PostList from './components/PostList';
 import PostDetail from './components/PostDetail';
 import NewPostForm from './components/NewPostForm';
 import EditPostForm from './components/EditPostForm';
+import { UserProvider } from './contexts/UserContext';
 
 // 로그인폼에 회원가입 버튼
 // 버튼 클릭하면 회원가입 폼 보여주기
@@ -60,25 +61,27 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        {this.state.page === 'login' ? (
-          <LoginForm onRegister={() => this.handleRegisterPage()} />
-        ) : this.state.page === 'register' ? (
-          <RegisterForm />
-        ) : this.state.page === 'post-list' ? (
-          <PostList onDetail={(postId) => this.handlePostDetail(postId)} onNewPostFormPage={() => this.handleNewPostFormPage()} />
-        ) : this.state.page === 'post-detail' ? (
-          <PostDetail
-            postId={this.state.postId}
-            onEditPostFormPage={(postId) => this.handleEditPostFormPage(postId)}
-            onPostListPage={() => this.handlePostListPage()}
-          />
-        ) : this.state.page === 'new-post-form' ? (
-          <NewPostForm onDetail={(postId) => this.handlePostDetail(postId)} />
-        ) : this.state.page === 'edit-post-form' ? (
-          <EditPostForm postId={this.state.postId} onDetail={(postId) => this.handlePostDetail(postId)} />
-        ) : null}
-      </div>
+      <UserProvider>
+        <div className="App">
+          {this.state.page === 'login' ? (
+            <LoginForm onRegister={() => this.handleRegisterPage()} />
+          ) : this.state.page === 'register' ? (
+            <RegisterForm />
+          ) : this.state.page === 'post-list' ? (
+            <PostList onDetail={(postId) => this.handlePostDetail(postId)} onNewPostFormPage={() => this.handleNewPostFormPage()} />
+          ) : this.state.page === 'post-detail' ? (
+            <PostDetail
+              postId={this.state.postId}
+              onEditPostFormPage={(postId) => this.handleEditPostFormPage(postId)}
+              onPostListPage={() => this.handlePostListPage()}
+            />
+          ) : this.state.page === 'new-post-form' ? (
+            <NewPostForm onDetail={(postId) => this.handlePostDetail(postId)} />
+          ) : this.state.page === 'edit-post-form' ? (
+            <EditPostForm postId={this.state.postId} onDetail={(postId) => this.handlePostDetail(postId)} />
+          ) : null}
+        </div>
+      </UserProvider>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../api';
 import Layout from './Layout';
+import { UserConsumer } from '../contexts/UserContext';
 
 export default class PostList extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class PostList extends Component {
     return (
       <Layout title="POST LIST">
         {/* <h1>POST LIST</h1> */}
+
         <button onClick={() => onNewPostFormPage()}>NEW POST</button>
         <ul>
           {posts.map((post) => (
