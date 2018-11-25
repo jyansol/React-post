@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../api';
 import { unregister } from '../serviceWorker';
 
+// UserContext는 횡단 관심사!
 // 로그인과 관련된 외부세계와 관련된 코드
 const { Provider, Consumer } = React.createContext();
 
@@ -67,4 +68,19 @@ export default class UserProvider extends Component {
   }
 }
 
-export { UserProvider, Consumer as UserConsumer };
+// with로 시작하는것이 관례적, 매개변수명칭도 관례적
+// 함수형 컴포넌트를 반환하는 예시 : 함수형 컴포넌트는 엘리먼트를 반환
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+
+function withUser(WrappedComponent) {
+  function WithUser(props) {
+    return <Consumer>{(value) => <WrappedComponent {...value} {...props} />}</Consumer>;
+  }
+  WithUser.displayName = `WithUser(${getDisplayName(WrappedComponent)})`;
+  return WithUser;
+}
+
+export { UserProvider, Consumer as UserConsumer, withUser };
