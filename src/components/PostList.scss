@@ -1,0 +1,32 @@
+@import '../common.scss';
+
+/* post-list */
+.PostList {
+  &__title {
+    color: $main-color;
+  }
+
+  &__list {
+    @include common-border;
+    @include desktop {
+      background-color: yellowgreen;
+    }
+    @include mobile {
+      background-color: tomato;
+    }
+  }
+
+  &__item {
+    color: gray;
+  }
+
+  /* 상태에 따른 CSS */
+  &__title {
+    &--loading {
+      color: $sub-color;
+    }
+  }
+  // &__title--loading {
+  //   color: $sub-color;
+  // }
+}

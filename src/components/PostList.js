@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import api from '../api';
 import Layout from './Layout';
 import { UserConsumer } from '../contexts/UserContext';
+import classNames from 'classnames';
+import './PostList.scss';
 
 export default class PostList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
-      loading: false,
+      loading: true,
     };
   }
 
@@ -19,6 +21,7 @@ export default class PostList extends Component {
     const res = await api.get('/posts');
     this.setState({
       posts: res.data,
+      loading: false,
     });
   }
 
@@ -26,18 +29,22 @@ export default class PostList extends Component {
     // const {} 로 App에서 내려쥼
     const { posts } = this.state;
     const { onDetail, onNewPostFormPage, onLoginFormPage } = this.props;
+    const titleClass = classNames('PostList__title', {
+      'PostList__title--loading': this.state.loading,
+    });
     return (
       <Layout title="POST LIST" onLoginFormPage={onLoginFormPage}>
-        {/* <h1>POST LIST</h1> */}
-
-        <button onClick={() => onNewPostFormPage()}>NEW POST</button>
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id} onClick={() => onDetail(post.id)}>
-              {post.title}
-            </li>
-          ))}
-        </ul>
+        <div className="PostList">
+          <h1 className={titleClass}>POST LIST</h1>
+          <button onClick={() => onNewPostFormPage()}>NEW POST</button>
+          <ul className="PostList__list">
+            {posts.map((post) => (
+              <li className="PostList__item" key={post.id} onClick={() => onDetail(post.id)}>
+                {post.title}
+              </li>
+            ))}
+          </ul>
+        </div>
       </Layout>
     );
   }

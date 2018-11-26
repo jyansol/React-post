@@ -1,0 +1,24 @@
+$main-color: orange;
+$sub-color: tomato;
+$main-border: gray;
+
+@mixin common-border {
+  border: $main-border;
+  list-style: none;
+}
+
+@mixin desktop {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+// mixin을 쓸때, 아래 코드가 위쪽(@content)으로 적용됨
+// @include desktop {
+//   color: yellowgreen;
+// }
+
+@mixin mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
