@@ -4,7 +4,13 @@ import { unregister } from '../serviceWorker';
 
 // UserContext는 횡단 관심사!
 // 로그인과 관련된 외부세계와 관련된 코드
-const { Provider, Consumer } = React.createContext();
+// {} 기본값 설정 - provider가 없을때, 기본값을 사용할 수 있다
+const { Provider, Consumer } = React.createContext({
+  username: 'qqqq',
+  id: 3,
+  login: () => {},
+  logout: () => {},
+});
 
 export default class UserProvider extends Component {
   constructor(props) {

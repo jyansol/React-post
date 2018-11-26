@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import PostDetailView from '../components/PostDetailView';
 import api from '../api';
-import Layout from './Layout';
-import { UserConsumer } from '../contexts/UserContext';
 
 export default class PostDetail extends Component {
   constructor(props) {
@@ -26,24 +25,18 @@ export default class PostDetail extends Component {
       userId,
     });
   }
-
   render() {
-    const { title, body } = this.state;
-    const { postId, onEditPostFormPage, onPostListPage } = this.props;
+    const { onEditPostFormPage, onPostListPage, postId } = this.props;
+    const { userId, title, body } = this.state;
     return (
-      <Layout title="타-란!">
-        <h1>post detail</h1>
-        <UserConsumer>
-          {({ id }) => {
-            if (this.state.userId === id) {
-              return <button onClick={() => onEditPostFormPage(postId)}>EDIT</button>;
-            }
-          }}
-        </UserConsumer>
-        <button onClick={() => onPostListPage()}>BACK</button>
-        <h2>{title}</h2>
-        <p>{body}</p>
-      </Layout>
+      <PostDetailView
+        userId={userId}
+        onEditPostFormPage={onEditPostFormPage}
+        onPostListPage={onPostListPage}
+        postId={postId}
+        title={title}
+        body={body}
+      />
     );
   }
 }
