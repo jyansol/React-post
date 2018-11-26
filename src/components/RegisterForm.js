@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api';
+import { Form } from 'semantic-ui-react';
 
 export default class RegisterForm extends Component {
   constructor(props) {
@@ -55,12 +56,14 @@ export default class RegisterForm extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <h1>sign up</h1>
-        <input type="text" name="username" value={username} onChange={(e) => this.handleFieldChange(e, 'username')} />
-        <input type="password" name="password" value={password} onChange={(e) => this.handleFieldChange(e, 'password')} />
-        <button>go!</button>
-      </form>
+      <React.Fragment>
+        <Form onSubmit={(e) => this.handleSubmit(e)}>
+          <h1>sign up</h1>
+          <Form.Input type="text" name="username" value={username} onChange={(e) => this.handleFieldChange(e, 'username')} />
+          <Form.Input type="password" name="password" value={password} onChange={(e) => this.handleFieldChange(e, 'password')} />
+          <Form.Button>go!</Form.Button>
+        </Form>
+      </React.Fragment>
     );
   }
 }

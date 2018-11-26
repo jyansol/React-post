@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserConsumer, withUser } from '../contexts/UserContext';
+import { Form } from 'semantic-ui-react';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -35,12 +36,12 @@ class LoginForm extends React.Component {
     const { onRegister } = this.props;
     return (
       <React.Fragment>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <Form onSubmit={(e) => this.handleSubmit(e)}>
           <h1>Login</h1>
-          <input ref={this.usernameRef} type="text" name="username" />
-          <input ref={this.passwordRef} type="password" name="password" />
-          <button>Login</button>
-        </form>
+          <Form.Input label="사용자이름" type="text" name="username" />
+          <Form.Input label="비밀번호" type="password" name="password" />
+          <Form.Button>Login</Form.Button>
+        </Form>
         <button onClick={() => onRegister()}>sign up</button>
       </React.Fragment>
     );
@@ -53,5 +54,5 @@ class LoginForm extends React.Component {
 // LoginForm 부분을 Component라는 매개변수로 받아서
 // export default withUser('component이름')으로 짧게 쓸 수 있음
 
-//
+//input tag 에게 Ref를 내려주고 싶을 때, innerRef로 내려 줄 수 있었다. 그런데 사용법이 바뀐 것 같다.
 export default withUser(LoginForm);
