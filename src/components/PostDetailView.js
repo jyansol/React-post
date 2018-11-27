@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Layout from './Layout';
 import { UserConsumer } from '../contexts/UserContext';
+import withLoading from '../hoc/withLoading';
 
-export default class PostDetailView extends Component {
+class PostDetailView extends Component {
   render() {
     const { userId, postId, onEditPostFormPage, onPostListPage, title, body } = this.props;
     return (
@@ -22,3 +23,5 @@ export default class PostDetailView extends Component {
     );
   }
 }
+
+export default withLoading(PostDetailView);

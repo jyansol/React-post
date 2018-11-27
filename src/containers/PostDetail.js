@@ -10,10 +10,12 @@ export default class PostDetail extends Component {
       body: '',
       title: '',
       userId: null,
+      loading: true,
     };
   }
   // 받아와서 표시해줄때, 화면이 표시되는 시점에 componentDidMount()를 이용해 데이터를 가져옴
   // 내가 쓴 글일때만 수정되게
+  //통신이 끝났을때, loading : false
   async componentDidMount() {
     const { postId } = this.props;
     const {
@@ -23,11 +25,12 @@ export default class PostDetail extends Component {
       body,
       title,
       userId,
+      loading: false,
     });
   }
   render() {
     const { onEditPostFormPage, onPostListPage, postId } = this.props;
-    const { userId, title, body } = this.state;
+    const { userId, title, body, loading } = this.state;
     return (
       <PostDetailView
         userId={userId}
@@ -36,6 +39,7 @@ export default class PostDetail extends Component {
         postId={postId}
         title={title}
         body={body}
+        loading={loading}
       />
     );
   }
