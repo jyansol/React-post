@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from './Layout';
 import { UserConsumer } from '../contexts/UserContext';
 import withLoading from '../hoc/withLoading';
+import { Helmet } from 'react-helmet';
 
 class PostDetailView extends Component {
   render() {
@@ -15,6 +16,9 @@ class PostDetailView extends Component {
     } = this.props;
     return (
       <React.Fragment>
+        <Helmet>
+          <title>게시물 - {title}</title>
+        </Helmet>
         <h1>post detail</h1>
         <UserConsumer>
           {({ id }) => {
