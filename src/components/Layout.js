@@ -9,7 +9,11 @@ class Layout extends Component {
         <div className="header">
           header
           <div>{username}</div>
-          {username ? <button onClick={logout}>LOGOUT</button> : <button onClick={onLoginFormPage}>LOGIN</button>}
+          {username ? (
+            <button onClick={logout}>LOGOUT</button>
+          ) : (
+            <button onClick={onLoginFormPage}>LOGIN</button>
+          )}
         </div>
         <h1 className="title">{this.props.title}</h1>
         {this.props.children}

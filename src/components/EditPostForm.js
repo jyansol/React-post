@@ -34,6 +34,13 @@ export default class EditPostForm extends Component {
     if (!title) {
       return 'loading...';
     }
-    return <PostForm editing={true} onSubmit={(title, body) => this.handleSubmit(title, body)} title={title} body={body} />;
+    return (
+      <PostForm
+        editing={true}
+        onSubmit={(title, body) => this.handleSubmit(title, body)}
+        title={title}
+        body={body}
+      />
+    );
   }
 }

@@ -83,7 +83,9 @@ function getDisplayName(WrappedComponent) {
 
 function withUser(WrappedComponent) {
   function WithUser(props) {
-    return <Consumer>{(value) => <WrappedComponent {...value} {...props} />}</Consumer>;
+    return (
+      <Consumer>{value => <WrappedComponent {...value} {...props} />}</Consumer>
+    );
   }
   WithUser.displayName = `WithUser(${getDisplayName(WrappedComponent)})`;
   return WithUser;

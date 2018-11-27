@@ -57,10 +57,20 @@ export default class RegisterForm extends Component {
     const { username, password } = this.state;
     return (
       <React.Fragment>
-        <Form onSubmit={(e) => this.handleSubmit(e)}>
+        <Form onSubmit={e => this.handleSubmit(e)}>
           <h1>sign up</h1>
-          <Form.Input type="text" name="username" value={username} onChange={(e) => this.handleFieldChange(e, 'username')} />
-          <Form.Input type="password" name="password" value={password} onChange={(e) => this.handleFieldChange(e, 'password')} />
+          <Form.Input
+            type="text"
+            name="username"
+            value={username}
+            onChange={e => this.handleFieldChange(e, 'username')}
+          />
+          <Form.Input
+            type="password"
+            name="password"
+            value={password}
+            onChange={e => this.handleFieldChange(e, 'password')}
+          />
           <Form.Button>go!</Form.Button>
         </Form>
       </React.Fragment>

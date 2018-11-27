@@ -5,14 +5,23 @@ import withLoading from '../hoc/withLoading';
 
 class PostDetailView extends Component {
   render() {
-    const { userId, postId, onEditPostFormPage, onPostListPage, title, body } = this.props;
+    const {
+      userId,
+      postId,
+      onEditPostFormPage,
+      onPostListPage,
+      title,
+      body,
+    } = this.props;
     return (
       <React.Fragment>
         <h1>post detail</h1>
         <UserConsumer>
           {({ id }) => {
             if (userId === id) {
-              return <button onClick={() => onEditPostFormPage(postId)}>EDIT</button>;
+              return (
+                <button onClick={() => onEditPostFormPage(postId)}>EDIT</button>
+              );
             }
           }}
         </UserConsumer>

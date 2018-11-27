@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
     const { onRegister } = this.props;
     return (
       <React.Fragment>
-        <Form onSubmit={(e) => this.handleSubmit(e)}>
+        <Form onSubmit={e => this.handleSubmit(e)}>
           <h1>Login</h1>
           <Form.Input label="사용자이름" type="text" name="username" />
           <Form.Input label="비밀번호" type="password" name="password" />

@@ -12,6 +12,8 @@ export default class NewPostForm extends Component {
     //res.data새로생성된 data
   }
   render() {
-    return <PostForm onSubmit={(title, body) => this.handleSubmit(title, body)} />;
+    return (
+      <PostForm onSubmit={(title, body) => this.handleSubmit(title, body)} />
+    );
   }
 }

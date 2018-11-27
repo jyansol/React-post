@@ -22,15 +22,25 @@ export default class PostForm extends Component {
       <div>
         <h1>NEW POST</h1>
         <Form
-          onSubmit={(e) => {
+          onSubmit={e => {
             e.preventDefault();
             const title = e.target.elements.title.value;
             const body = e.target.elements.body.value;
             this.props.onSubmit(title, body);
           }}
         >
-          <Form.Input className={titleClass} type="text" name="title" defaultValue={this.props.title} />
-          <Form.TextArea name="body" cols="30" rows="10" defaultValue={this.props.body} />
+          <Form.Input
+            className={titleClass}
+            type="text"
+            name="title"
+            defaultValue={this.props.title}
+          />
+          <Form.TextArea
+            name="body"
+            cols="30"
+            rows="10"
+            defaultValue={this.props.body}
+          />
           <Form.Button>go!</Form.Button>
         </Form>
       </div>

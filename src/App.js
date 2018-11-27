@@ -75,20 +75,23 @@ class App extends Component {
             <RegisterForm />
           ) : this.state.page === 'post-list' ? (
             <PostListPage
-              onDetail={(postId) => this.handlePostDetail(postId)}
+              onDetail={postId => this.handlePostDetail(postId)}
               onNewPostFormPage={() => this.handleNewPostFormPage()}
               onLoginFormPage={() => this.handleLoginFormPage()}
             />
           ) : this.state.page === 'post-detail' ? (
             <PostDetailPage
               postId={this.state.postId}
-              onEditPostFormPage={(postId) => this.handleEditPostFormPage(postId)}
+              onEditPostFormPage={postId => this.handleEditPostFormPage(postId)}
               onPostListPage={() => this.handlePostListPage()}
             />
           ) : this.state.page === 'new-post-form' ? (
-            <NewPostForm onDetail={(postId) => this.handlePostDetail(postId)} />
+            <NewPostForm onDetail={postId => this.handlePostDetail(postId)} />
           ) : this.state.page === 'edit-post-form' ? (
-            <EditPostForm postId={this.state.postId} onDetail={(postId) => this.handlePostDetail(postId)} />
+            <EditPostForm
+              postId={this.state.postId}
+              onDetail={postId => this.handlePostDetail(postId)}
+            />
           ) : null}
         </div>
       </UserProvider>
