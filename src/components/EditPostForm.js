@@ -21,11 +21,7 @@ export default class EditPostForm extends Component {
     });
   }
 
-  async handleSubmit(e) {
-    e.preventDefault();
-    const title = e.target.elements.title.value;
-    const body = e.target.elements.body.value;
-
+  async handleSubmit(title, body) {
     await api.patch(`/posts/${this.props.postId}`, {
       title,
       body,
@@ -38,6 +34,6 @@ export default class EditPostForm extends Component {
     if (!title) {
       return 'loading...';
     }
-    return <PostForm editing={true} onSubmit={(e) => this.handleSubmit(e)} title={title} body={body} />;
+    return <PostForm editing={true} onSubmit={(title, body) => this.handleSubmit(title, body)} title={title} body={body} />;
   }
 }

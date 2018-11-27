@@ -6,6 +6,11 @@ import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
 import PostForm from './PostForm';
+
+const actions = {
+  onSubmit: action('onSubmit'),
+};
 storiesOf('PostForm', module)
-  .add('default', () => <PostForm />)
-  .add('editing', () => <PostForm editing={true} />);
+  .add('default', () => <PostForm {...actions} />)
+  // 함수결과를 넣어줌
+  .add('editing', () => <PostForm {...actions} editing={true} />);
