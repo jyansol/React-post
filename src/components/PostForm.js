@@ -5,6 +5,11 @@ import classNames from 'classnames';
 // 새글 및 수정 컴포넌트
 // 객체 대괄호 표기법 [] : 결과값이 속성값이 됨
 export default class PostForm extends Component {
+  static defaultprops = {
+    // editing prop : true가 주어지면, 편집 모드 스타일이 적용됨
+    editing: false,
+  };
+
   render() {
     const { editing } = this.props;
     const titleClass = classNames(s.titleInput, {
