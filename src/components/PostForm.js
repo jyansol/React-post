@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import s from './PostForm.module.scss';
 import classNames from 'classnames';
+import { Form } from 'semantic-ui-react';
 
 // 새글 및 수정 컴포넌트
 // 객체 대괄호 표기법 [] : 결과값이 속성값이 됨
@@ -20,7 +21,7 @@ export default class PostForm extends Component {
     return (
       <div>
         <h1>NEW POST</h1>
-        <form
+        <Form
           onSubmit={(e) => {
             e.preventDefault();
             const title = e.target.elements.title.value;
@@ -28,10 +29,10 @@ export default class PostForm extends Component {
             this.props.onSubmit(title, body);
           }}
         >
-          <input className={titleClass} type="text" name="title" defaultValue={this.props.title} />
-          <textarea name="body" cols="30" rows="10" defaultValue={this.props.body} />
-          <button>go!</button>
-        </form>
+          <Form.Input className={titleClass} type="text" name="title" defaultValue={this.props.title} />
+          <Form.TextArea name="body" cols="30" rows="10" defaultValue={this.props.body} />
+          <Form.Button>go!</Form.Button>
+        </Form>
       </div>
     );
   }

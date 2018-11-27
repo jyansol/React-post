@@ -7,7 +7,7 @@ class PostDetailView extends Component {
   render() {
     const { userId, postId, onEditPostFormPage, onPostListPage, title, body } = this.props;
     return (
-      <Layout title="타-란!">
+      <React.Fragment>
         <h1>post detail</h1>
         <UserConsumer>
           {({ id }) => {
@@ -19,7 +19,7 @@ class PostDetailView extends Component {
         <button onClick={() => onPostListPage()}>BACK</button>
         <h2>{title}</h2>
         <p>{body}</p>
-      </Layout>
+      </React.Fragment>
     );
   }
 }
